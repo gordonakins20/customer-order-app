@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Order Manager</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">ORDER OPERATIONS</p>
+      <h1>Customer Order Manager</h1>
+    </div>
+    <button id="refreshBtn" class="secondary">Refresh</button>
+  </header>
+
+  <main class="container">
+    <section class="stats" aria-label="Dashboard totals">
+      <article><span>Customers</span><strong id="customerCount">0</strong></article>
+      <article><span>Products</span><strong id="productCount">0</strong></article>
+      <article><span>Orders</span><strong id="orderCount">0</strong></article>
+      <article><span>Revenue</span><strong id="revenue">$0.00</strong></article>
+    </section>
+
+    <div id="message" class="message hidden"></div>
+
+    <section class="grid two-col">
+      <article class="panel">
+        <div class="panel-heading"><h2>Add customer</h2></div>
+        <form id="customerForm" class="form-grid">
+          <label>Name<input id="customerName" required /></label>
+          <label>Email<input id="customerEmail" type="email" required /></label>
+          <label>Phone<input id="customerPhone" /></label>
+          <button type="submit">Save customer</button>
+        </form>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading"><h2>Add product</h2></div>
+        <form id="productForm" class="form-grid">
+          <label>Name<input id="productName" required /></label>
+          <label>SKU<input id="productSku" required /></label>
+          <label>Price<input id="productPrice" type="number" min="0" step="0.01" required /></label>
+          <label>Stock<input id="productStock" type="number" min="0" required /></label>
+          <button type="submit">Save product</button>
+        </form>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-heading"><h2>Create order</h2><span id="cartTotal">$0.00</span></div>
+      <div class="order-builder">
+        <label>Customer<select id="orderCustomer"></select></label>
+        <label>Product<select id="orderProduct"></select></label>
+        <label>Quantity<input id="orderQuantity" type="number" min="1" value="1" /></label>
+        <button id="addToCartBtn" type="button" class="secondary">Add item</button>
+      </div>
+      <div id="cart" class="cart empty">No items added.</div>
+      <button id="placeOrderBtn" type="button">Place order</button>
+    </section>
+
+    <section class="panel">
+      <div class="panel-heading"><h2>Orders</h2></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ID</th><th>Customer</th><th>Items</th><th>Total</th><th>Status</th><th>Created</th><th></th></tr></thead>
+          <tbody id="ordersBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="grid two-col">
+      <article class="panel">
+        <div class="panel-heading"><h2>Customers</h2></div>
+        <div class="table-wrap"><table><thead><tr><th>Name</th><th>Email</th><th>Phone</th><th></th></tr></thead><tbody id="customersBody"></tbody></table></div>
+      </article>
+      <article class="panel">
+        <div class="panel-heading"><h2>Products</h2></div>
+        <div class="table-wrap"><table><thead><tr><th>Product</th><th>SKU</th><th>Price</th><th>Stock</th><th></th></tr></thead><tbody id="productsBody"></tbody></table></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
