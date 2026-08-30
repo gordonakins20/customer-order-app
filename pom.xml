@@ -11,7 +11,7 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.king</groupId>
+    <groupId>com.customerorder</groupId>
     <artifactId>customer-order-app</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>customer-order-app</name>

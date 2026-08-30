@@ -1,4 +1,4 @@
-package com.king.customerorder;
+package com.customerorder;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
